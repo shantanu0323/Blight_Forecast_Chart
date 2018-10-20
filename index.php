@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta name = "viewport" content = "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+<!--    <meta name = "viewport" content = "width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">-->
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> 
     
     <style>
