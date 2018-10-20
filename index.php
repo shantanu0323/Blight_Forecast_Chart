@@ -11,12 +11,16 @@
             background: black;
             color: white;
         }
+        #myChart {
+            width: 100vw;
+            height: 100vh;
+        }
     </style>
 
 </head>
 <body>
     
-    <canvas id="myChart" width="300" height="200"></canvas>
+    <canvas id="myChart"></canvas>
     
     <script>
 
