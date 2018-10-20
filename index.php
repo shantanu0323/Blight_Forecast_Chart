@@ -33,7 +33,7 @@
 
         var borderColor;
         if(url.searchParams.get("color") == null) {
-            borderColor = "rgba(255,50,50,1)";
+            borderColor = "rgba(20,175,250,1)";
         } else {
             borderColor = url.searchParams.get("color") ;
         }
