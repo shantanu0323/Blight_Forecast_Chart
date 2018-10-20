@@ -2,9 +2,17 @@
 <html>
 <head>
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0, user-scalable=no">
-    <script src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"> 
-    <script src="https:www.chatrjs.org/samples/latest/utils.js">
-</script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script> 
+    <script src="https:www.chatrjs.org/samples/latest/utils.js"></script>
+    
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            background: black;
+        }
+    </style>
+
 </head>
 <body>
     
@@ -12,7 +20,14 @@
     <script>
         var ctx = document.getElementById("myChart").getContext('2d');
         var options = {
-			maintainAspectRatio: false,
+			legend: {
+                display: false,
+                position: 'top',
+                labels: {
+                    fontColor: 'white'
+                }
+            },
+            maintainAspectRatio: false,
 			spanGaps: false,
 			elements: {
 				line: {
@@ -24,42 +39,55 @@
 					propagate: false
 				}
 			},
+            title: {
+                text: 'Temperature Forecast',
+                display: true,
+                fontColor: 'white'
+            },
 			scales: {
 				xAxes: [{
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.2)'
+                    },
 					ticks: {
 						autoSkip: false,
-						maxRotation: 0
+						maxRotation: 0,
+                        fontColor: 'white'
 					}
 				}],
                 yAxes: [{
+                    gridLines: {
+                        color: 'rgba(255,255,255,0.2)'
+                    },
                     ticks: {
-                        suggestedMin: 0,
-                        precision: 0.2,
-                        suggestedMax: 50
+                        fontColor: 'white'
                     }
-                }]
+                }],
+                pointLabels: {
+                    fontColor: 'white' // labels around the edge like 'Running'
+                },
+                angleLines: {
+                    color: 'white' // lines radiating from the center
+                }
 			}
 		};
 
         var boundary = 'start';
+        var labels = ['Sun','Mon','Tue','Wed','Thu'];
+        var temperatures = [25,28,29.5,27,30];
         var myChart = new Chart(ctx, {
 				type: 'line',
 				data: {
-					labels: ['Apr','May','Jun','Jul','Aug'],
+					labels: labels,
 					datasets: [{
 						backgroundColor: 'rgba(220,50,50,0.5)',
 						borderColor: '#dd5555',
-						data: [25,28,29,27,30],
+						data: temperatures,
                   		label: 'Dataset',
 						fill: boundary
 					}]
 				},
-				options: Chart.helpers.merge(options, {
-					title: {
-						text: 'fill: ' + boundary,
-						display: true
-					}
-				})
+				options: options
 			});
         Chart.helpers.each(Chart.instances, function(chart) {
 				chart.options.elements.line.tension = 0.4;
