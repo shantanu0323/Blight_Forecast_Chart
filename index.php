@@ -151,7 +151,7 @@
                         backgroundColor: backgroundColor,
                         borderColor: borderColor,
                         data: temperatures,
-                        label: 'Dataset',
+                        label: 'Temperature',
                         fill: boundary
                     }]
                 },
